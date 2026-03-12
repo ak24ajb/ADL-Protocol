@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+fl-env/
+venv/
+.env
+
+# Dataset
+data/
+
+# Logs
+experiments/logs/
+
+# System
+.DS_Store
