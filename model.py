@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 #Inheriting 'nn.Module' which is PyTorch's base class for all neural networks
 
-class Net(nn.Module):
+class MNISTNet(nn.Module):
     
     #Setup of the NN
     def __init__(self):
