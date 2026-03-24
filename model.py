@@ -11,7 +11,7 @@ class MNISTNet(nn.Module):
     def __init__(self):
         
         #Declaring super here to intialize the parent class
-        super(Net, self).__init__()
+        super().__init__()
 
         #Layer 1 of the N.network
         #28x28 pixels = 784 flattened inputs, mapped onto 128 neurons
@@ -19,11 +19,12 @@ class MNISTNet(nn.Module):
 
         #Layer 2
         #128 values now mapped to 64 neurons
-        self.fc2 = nn.Linear(64, 128)
+        self.fc2 = nn.Linear(128, 64)
 
         #OUTPUT LAYER
         #64 values now mapped to 10 neurons, one for each digit (0-9)
         self.fc3 = nn.Linear(64, 10)
+
 
 
     #how data flows through the NN
