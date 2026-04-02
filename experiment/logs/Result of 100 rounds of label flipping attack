@@ -1,0 +1,542 @@
+Result of 100 rounds of label flipping attack 
+
+
+INFO :      [ROUND 82]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 83]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38865)   [SETUP] Client 7 is MALICIOUS [repeated 23x across cluster]
+(ClientAppActor pid=38869)   [ATTACK] Client 6 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 84]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 85]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 86]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38865)   [SETUP] Client 8 is MALICIOUS [repeated 21x across cluster]
+(ClientAppActor pid=38868)   [ATTACK] Client 7 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 87]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 88]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 89]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38871)   [SETUP] Client 6 is MALICIOUS [repeated 22x across cluster]
+(ClientAppActor pid=38869)   [ATTACK] Client 7 submitted poisoned update [repeated 8x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 90]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 91]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 92]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38868)   [SETUP] Client 9 is MALICIOUS [repeated 22x across cluster]
+(ClientAppActor pid=38868)   [ATTACK] Client 6 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 93]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 94]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 95]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38867)   [SETUP] Client 9 is MALICIOUS [repeated 24x across cluster]
+(ClientAppActor pid=38870)   [ATTACK] Client 9 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 96]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 97]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 98]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=38865)   [SETUP] Client 6 is MALICIOUS [repeated 24x across cluster]
+(ClientAppActor pid=38868)   [ATTACK] Client 9 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 99]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 100]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 100 round(s) in 186.98s
+INFO :      	History (loss, distributed):
+INFO :      		round 1: 1.0696137579104388
+INFO :      		round 2: 0.697088587207916
+INFO :      		round 3: 0.5547078603753647
+INFO :      		round 4: 0.4983237630071731
+INFO :      		round 5: 0.4643481310373679
+INFO :      		round 6: 0.4442003925006611
+INFO :      		round 7: 0.429950303658129
+INFO :      		round 8: 0.41103356037848293
+INFO :      		round 9: 0.40245819229858754
+INFO :      		round 10: 0.3883394365207836
+INFO :      		round 11: 0.3822985995120514
+INFO :      		round 12: 0.3786997602770504
+INFO :      		round 13: 0.37752688734676126
+INFO :      		round 14: 0.3622706570564367
+INFO :      		round 15: 0.36689488908734186
+INFO :      		round 16: 0.3642820390839927
+INFO :      		round 17: 0.3577440842843284
+INFO :      		round 18: 0.36140659002069464
+INFO :      		round 19: 0.3530331514323481
+INFO :      		round 20: 0.3444866984796981
+INFO :      		round 21: 0.3531623583822585
+INFO :      		round 22: 0.3462634361209199
+INFO :      		round 23: 0.3402528714828979
+INFO :      		round 24: 0.34696754100985416
+INFO :      		round 25: 0.3351025887952445
+INFO :      		round 26: 0.3281475290703697
+INFO :      		round 27: 0.3417012732630721
+INFO :      		round 28: 0.3336489646198651
+INFO :      		round 29: 0.31481527707066403
+INFO :      		round 30: 0.3247229886321595
+INFO :      		round 31: 0.31339331404469645
+INFO :      		round 32: 0.3241374786859884
+INFO :      		round 33: 0.3129504471160352
+INFO :      		round 34: 0.30594632627484136
+INFO :      		round 35: 0.3245206082781283
+INFO :      		round 36: 0.3153534374297999
+INFO :      		round 37: 0.31112268489008893
+INFO :      		round 38: 0.3079593142000631
+INFO :      		round 39: 0.32611490623257794
+INFO :      		round 40: 0.3174528832062365
+INFO :      		round 41: 0.31230766906525004
+INFO :      		round 42: 0.3051814956596484
+INFO :      		round 43: 0.30146061442911437
+INFO :      		round 44: 0.30319669138128386
+INFO :      		round 45: 0.29868066885981703
+INFO :      		round 46: 0.30491674826168025
+INFO :      		round 47: 0.3060231620511308
+INFO :      		round 48: 0.3022397059411667
+INFO :      		round 49: 0.3043973775907827
+INFO :      		round 50: 0.29470692467384824
+INFO :      		round 51: 0.3048958077788734
+INFO :      		round 52: 0.3018685467136554
+INFO :      		round 53: 0.30119911858829823
+INFO :      		round 54: 0.285372759949285
+INFO :      		round 55: 0.2991687204700689
+INFO :      		round 56: 0.2903715393604181
+INFO :      		round 57: 0.29028090623240116
+INFO :      		round 58: 0.3002620711018102
+INFO :      		round 59: 0.29020539139406365
+INFO :      		round 60: 0.29574216357625716
+INFO :      		round 61: 0.2942337013090761
+INFO :      		round 62: 0.3114437387964596
+INFO :      		round 63: 0.30462666161524987
+INFO :      		round 64: 0.30654925389792587
+INFO :      		round 65: 0.28522369928253344
+INFO :      		round 66: 0.2859654546164857
+INFO :      		round 67: 0.2861554762997186
+INFO :      		round 68: 0.28995787163321585
+INFO :      		round 69: 0.29623053405231564
+INFO :      		round 70: 0.30008142689546463
+INFO :      		round 71: 0.2989716590022127
+INFO :      		round 72: 0.28941877747115236
+INFO :      		round 73: 0.3025447341199881
+INFO :      		round 74: 0.29052871303817335
+INFO :      		round 75: 0.3015270363218106
+INFO :      		round 76: 0.2829783663296471
+INFO :      		round 77: 0.28822318440237743
+INFO :      		round 78: 0.29449834815991194
+INFO :      		round 79: 0.2912718985693904
+INFO :      		round 80: 0.32880925054367355
+INFO :      		round 81: 0.3075456540424602
+INFO :      		round 82: 0.2930768460511399
+INFO :      		round 83: 0.29802873067962476
+INFO :      		round 84: 0.3050893512396766
+INFO :      		round 85: 0.3113149406049198
+INFO :      		round 86: 0.30211892975405
+INFO :      		round 87: 0.29632039116784786
+INFO :      		round 88: 0.30794417885736153
+INFO :      		round 89: 0.2985372127816319
+INFO :      		round 90: 0.3161637411711696
+INFO :      		round 91: 0.29030846871507054
+INFO :      		round 92: 0.30017721346392034
+INFO :      		round 93: 0.30181604031556714
+INFO :      		round 94: 0.2954907800062015
+INFO :      		round 95: 0.3014899427707965
+INFO :      		round 96: 0.31222301186464085
+INFO :      		round 97: 0.30116605503490557
+INFO :      		round 98: 0.29460174191874056
+INFO :      		round 99: 0.29485897221885166
+INFO :      		round 100: 0.3091810782877401
+INFO :      	History (metrics, distributed, evaluate):
+INFO :      	{'accuracy': [(1, 0.5747),
+INFO :      	              (2, 0.7397),
+INFO :      	              (3, 0.7868000000000002),
+INFO :      	              (4, 0.8141000000000002),
+INFO :      	              (5, 0.8337),
+INFO :      	              (6, 0.8437),
+INFO :      	              (7, 0.851),
+INFO :      	              (8, 0.8615),
+INFO :      	              (9, 0.8676),
+INFO :      	              (10, 0.873),
+INFO :      	              (11, 0.8705),
+INFO :      	              (12, 0.8723),
+INFO :      	              (13, 0.8604),
+INFO :      	              (14, 0.8798),
+INFO :      	              (15, 0.8652),
+INFO :      	              (16, 0.8744),
+INFO :      	              (17, 0.8716),
+INFO :      	              (18, 0.8587),
+INFO :      	              (19, 0.8743),
+INFO :      	              (20, 0.8807),
+INFO :      	              (21, 0.8596),
+INFO :      	              (22, 0.8484),
+INFO :      	              (23, 0.8764),
+INFO :      	              (24, 0.8587),
+INFO :      	              (25, 0.8793),
+INFO :      	              (26, 0.8874),
+INFO :      	              (27, 0.8581),
+INFO :      	              (28, 0.8739),
+INFO :      	              (29, 0.8913),
+INFO :      	              (30, 0.8747),
+INFO :      	              (31, 0.8813),
+INFO :      	              (32, 0.8698),
+INFO :      	              (33, 0.883),
+INFO :      	              (34, 0.8901),
+INFO :      	              (35, 0.8653),
+INFO :      	              (36, 0.8583),
+INFO :      	              (37, 0.8827),
+INFO :      	              (38, 0.8703),
+INFO :      	              (39, 0.8518),
+INFO :      	              (40, 0.8692),
+INFO :      	              (41, 0.8713),
+INFO :      	              (42, 0.875),
+INFO :      	              (43, 0.8807),
+INFO :      	              (44, 0.8768),
+INFO :      	              (45, 0.8796),
+INFO :      	              (46, 0.8657),
+INFO :      	              (47, 0.8682),
+INFO :      	              (48, 0.8779),
+INFO :      	              (49, 0.8716),
+INFO :      	              (50, 0.878),
+INFO :      	              (51, 0.8688),
+INFO :      	              (52, 0.868),
+INFO :      	              (53, 0.8644),
+INFO :      	              (54, 0.8841),
+INFO :      	              (55, 0.8694),
+INFO :      	              (56, 0.8691),
+INFO :      	              (57, 0.8752),
+INFO :      	              (58, 0.8584),
+INFO :      	              (59, 0.875),
+INFO :      	              (60, 0.8649),
+INFO :      	              (61, 0.8588),
+INFO :      	              (62, 0.8464),
+INFO :      	              (63, 0.8476),
+INFO :      	              (64, 0.855),
+INFO :      	              (65, 0.8737),
+INFO :      	              (66, 0.8725),
+INFO :      	              (67, 0.8669),
+INFO :      	              (68, 0.8676),
+INFO :      	              (69, 0.8556),
+INFO :      	              (70, 0.8519),
+INFO :      	              (71, 0.8586),
+INFO :      	              (72, 0.8643),
+INFO :      	              (73, 0.8554),
+INFO :      	              (74, 0.8647),
+INFO :      	              (75, 0.8493),
+INFO :      	              (76, 0.863),
+INFO :      	              (77, 0.8619),
+INFO :      	              (78, 0.8553),
+INFO :      	              (79, 0.8544),
+INFO :      	              (80, 0.7983),
+INFO :      	              (81, 0.8373),
+INFO :      	              (82, 0.8546),
+INFO :      	              (83, 0.8349),
+INFO :      	              (84, 0.8347),
+INFO :      	              (85, 0.8267),
+INFO :      	              (86, 0.8429),
+INFO :      	              (87, 0.8499),
+INFO :      	              (88, 0.8231),
+INFO :      	              (89, 0.8391),
+INFO :      	              (90, 0.8152),
+INFO :      	              (91, 0.8498),
+INFO :      	              (92, 0.8351),
+INFO :      	              (93, 0.8368),
+INFO :      	              (94, 0.8456),
+INFO :      	              (95, 0.8366),
+INFO :      	              (96, 0.8294),
+INFO :      	              (97, 0.8368),
+INFO :      	              (98, 0.8432),
+INFO :      	              (99, 0.8383),
+INFO :      	              (100, 0.8302)]}
+INFO :      
+
+--- fedavg_under_attack ---
+  Round  1: 0.5747
+  Round  2: 0.7397
+  Round  3: 0.7868
+  Round  4: 0.8141
+  Round  5: 0.8337
+  Round  6: 0.8437
+  Round  7: 0.8510
+  Round  8: 0.8615
+  Round  9: 0.8676
+  Round 10: 0.8730
+  Round 11: 0.8705
+  Round 12: 0.8723
+  Round 13: 0.8604
+  Round 14: 0.8798
+  Round 15: 0.8652
+  Round 16: 0.8744
+  Round 17: 0.8716
+  Round 18: 0.8587
+  Round 19: 0.8743
+  Round 20: 0.8807
+  Round 21: 0.8596
+  Round 22: 0.8484
+  Round 23: 0.8764
+  Round 24: 0.8587
+  Round 25: 0.8793
+  Round 26: 0.8874
+  Round 27: 0.8581
+  Round 28: 0.8739
+  Round 29: 0.8913
+  Round 30: 0.8747
+  Round 31: 0.8813
+  Round 32: 0.8698
+  Round 33: 0.8830
+  Round 34: 0.8901
+  Round 35: 0.8653
+  Round 36: 0.8583
+  Round 37: 0.8827
+  Round 38: 0.8703
+  Round 39: 0.8518
+  Round 40: 0.8692
+  Round 41: 0.8713
+  Round 42: 0.8750
+  Round 43: 0.8807
+  Round 44: 0.8768
+  Round 45: 0.8796
+  Round 46: 0.8657
+  Round 47: 0.8682
+  Round 48: 0.8779
+  Round 49: 0.8716
+  Round 50: 0.8780
+  Round 51: 0.8688
+  Round 52: 0.8680
+  Round 53: 0.8644
+  Round 54: 0.8841
+  Round 55: 0.8694
+  Round 56: 0.8691
+  Round 57: 0.8752
+  Round 58: 0.8584
+  Round 59: 0.8750
+  Round 60: 0.8649
+  Round 61: 0.8588
+  Round 62: 0.8464
+  Round 63: 0.8476
+  Round 64: 0.8550
+  Round 65: 0.8737
+  Round 66: 0.8725
+  Round 67: 0.8669
+  Round 68: 0.8676
+  Round 69: 0.8556
+  Round 70: 0.8519
+  Round 71: 0.8586
+  Round 72: 0.8643
+  Round 73: 0.8554
+  Round 74: 0.8647
+  Round 75: 0.8493
+  Round 76: 0.8630
+  Round 77: 0.8619
+  Round 78: 0.8553
+  Round 79: 0.8544
+  Round 80: 0.7983
+  Round 81: 0.8373
+  Round 82: 0.8546
+  Round 83: 0.8349
+  Round 84: 0.8347
+  Round 85: 0.8267
+  Round 86: 0.8429
+  Round 87: 0.8499
+  Round 88: 0.8231
+  Round 89: 0.8391
+  Round 90: 0.8152
+  Round 91: 0.8498
+  Round 92: 0.8351
+  Round 93: 0.8368
+  Round 94: 0.8456
+  Round 95: 0.8366
+  Round 96: 0.8294
+  Round 97: 0.8368
+  Round 98: 0.8432
+  Round 99: 0.8383
+  Round 100: 0.8302
+  [PLOT] Saved → /Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1
+
+Round-by-round accuracy:
+  Round 1: 0.5747
+  Round 2: 0.7397
+  Round 3: 0.7868
+  Round 4: 0.8141
+  Round 5: 0.8337
+  Round 6: 0.8437
+  Round 7: 0.8510
+  Round 8: 0.8615
+  Round 9: 0.8676
+  Round 10: 0.8730
+  Round 11: 0.8705
+  Round 12: 0.8723
+  Round 13: 0.8604
+  Round 14: 0.8798
+  Round 15: 0.8652
+  Round 16: 0.8744
+  Round 17: 0.8716
+  Round 18: 0.8587
+  Round 19: 0.8743
+  Round 20: 0.8807
+  Round 21: 0.8596
+  Round 22: 0.8484
+  Round 23: 0.8764
+  Round 24: 0.8587
+  Round 25: 0.8793
+  Round 26: 0.8874
+  Round 27: 0.8581
+  Round 28: 0.8739
+  Round 29: 0.8913
+  Round 30: 0.8747
+  Round 31: 0.8813
+  Round 32: 0.8698
+  Round 33: 0.8830
+  Round 34: 0.8901
+  Round 35: 0.8653
+  Round 36: 0.8583
+  Round 37: 0.8827
+  Round 38: 0.8703
+  Round 39: 0.8518
+  Round 40: 0.8692
+  Round 41: 0.8713
+  Round 42: 0.8750
+  Round 43: 0.8807
+  Round 44: 0.8768
+  Round 45: 0.8796
+  Round 46: 0.8657
+  Round 47: 0.8682
+  Round 48: 0.8779
+  Round 49: 0.8716
+  Round 50: 0.8780
+  Round 51: 0.8688
+  Round 52: 0.8680
+  Round 53: 0.8644
+  Round 54: 0.8841
+  Round 55: 0.8694
+  Round 56: 0.8691
+  Round 57: 0.8752
+  Round 58: 0.8584
+  Round 59: 0.8750
+  Round 60: 0.8649
+  Round 61: 0.8588
+  Round 62: 0.8464
+  Round 63: 0.8476
+  Round 64: 0.8550
+  Round 65: 0.8737
+  Round 66: 0.8725
+  Round 67: 0.8669
+  Round 68: 0.8676
+  Round 69: 0.8556
+  Round 70: 0.8519
+  Round 71: 0.8586
+  Round 72: 0.8643
+  Round 73: 0.8554
+  Round 74: 0.8647
+  Round 75: 0.8493
+  Round 76: 0.8630
+  Round 77: 0.8619
+  Round 78: 0.8553
+  Round 79: 0.8544
+  Round 80: 0.7983
+  Round 81: 0.8373
+  Round 82: 0.8546
+  Round 83: 0.8349
+  Round 84: 0.8347
+  Round 85: 0.8267
+  Round 86: 0.8429
+  Round 87: 0.8499
+  Round 88: 0.8231
+  Round 89: 0.8391
+  Round 90: 0.8152
+  Round 91: 0.8498
+  Round 92: 0.8351
+  Round 93: 0.8368
+  Round 94: 0.8456
+  Round 95: 0.8366
+  Round 96: 0.8294
+  Round 97: 0.8368
+  Round 98: 0.8432
+  Round 99: 0.8383
+  Round 100: 0.8302
+(ClientAppActor pid=38870)   [SETUP] Client 7 is MALICIOUS [repeated 23x across cluster]
+(ClientAppActor pid=38865)   [ATTACK] Client 9 submitted poisoned update [repeated 12x across cluster]
+(ClientAppActor pid=38870) [2026-03-26 11:39:01,754 E 38870 1589528] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14 [repeated 7x across cluster]

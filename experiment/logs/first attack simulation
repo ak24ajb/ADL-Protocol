@@ -1,0 +1,139 @@
+ClientAppActor pid=38551)   [ATTACK] Client 6 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 30 round(s) in 58.70s
+INFO :      	History (loss, distributed):
+INFO :      		round 1: 1.1113087910813646
+INFO :      		round 2: 0.7177017537930522
+INFO :      		round 3: 0.5687733286866745
+INFO :      		round 4: 0.5143798280828678
+INFO :      		round 5: 0.48700445917086865
+INFO :      		round 6: 0.45619041529326393
+INFO :      		round 7: 0.4497155420505963
+INFO :      		round 8: 0.4307535728136191
+INFO :      		round 9: 0.4191745289693626
+INFO :      		round 10: 0.40920123922558255
+INFO :      		round 11: 0.4067457219758354
+INFO :      		round 12: 0.39644204800883037
+INFO :      		round 13: 0.38921176141824204
+INFO :      		round 14: 0.3850317962634297
+INFO :      		round 15: 0.38175290474495577
+INFO :      		round 16: 0.3844261787760372
+INFO :      		round 17: 0.37014917135238645
+INFO :      		round 18: 0.3581709802722017
+INFO :      		round 19: 0.36292374033135727
+INFO :      		round 20: 0.3440116332742733
+INFO :      		round 21: 0.3716504958871835
+INFO :      		round 22: 0.3598858853117727
+INFO :      		round 23: 0.3457273142406354
+INFO :      		round 24: 0.3577523902201424
+INFO :      		round 25: 0.36004360657149614
+INFO :      		round 26: 0.3404813562147915
+INFO :      		round 27: 0.34943051174425854
+INFO :      		round 28: 0.3438189293248966
+INFO :      		round 29: 0.3352094637700163
+INFO :      		round 30: 0.34077137047871237
+INFO :      	History (metrics, distributed, evaluate):
+INFO :      	{'accuracy': [(1, 0.4228),
+INFO :      	              (2, 0.6974),
+INFO :      	              (3, 0.7654),
+INFO :      	              (4, 0.788),
+INFO :      	              (5, 0.7954),
+INFO :      	              (6, 0.8214),
+INFO :      	              (7, 0.8207),
+INFO :      	              (8, 0.8197),
+INFO :      	              (9, 0.8317),
+INFO :      	              (10, 0.8486),
+INFO :      	              (11, 0.829),
+INFO :      	              (12, 0.843),
+INFO :      	              (13, 0.8411),
+INFO :      	              (14, 0.837),
+INFO :      	              (15, 0.8315),
+INFO :      	              (16, 0.833),
+INFO :      	              (17, 0.852),
+INFO :      	              (18, 0.8607),
+INFO :      	              (19, 0.837),
+INFO :      	              (20, 0.8714),
+INFO :      	              (21, 0.8168),
+INFO :      	              (22, 0.8488),
+INFO :      	              (23, 0.8562),
+INFO :      	              (24, 0.8392),
+INFO :      	              (25, 0.8203),
+INFO :      	              (26, 0.858),
+INFO :      	              (27, 0.8363),
+INFO :      	              (28, 0.852),
+INFO :      	              (29, 0.8559),
+INFO :      	              (30, 0.849)]}
+INFO :      
+
+--- fedavg_under_attack ---
+  Round  1: 0.4228
+  Round  2: 0.6974
+  Round  3: 0.7654
+  Round  4: 0.7880
+  Round  5: 0.7954
+  Round  6: 0.8214
+  Round  7: 0.8207
+  Round  8: 0.8197
+  Round  9: 0.8317
+  Round 10: 0.8486
+  Round 11: 0.8290
+  Round 12: 0.8430
+  Round 13: 0.8411
+  Round 14: 0.8370
+  Round 15: 0.8315
+  Round 16: 0.8330
+  Round 17: 0.8520
+  Round 18: 0.8607
+  Round 19: 0.8370
+  Round 20: 0.8714
+  Round 21: 0.8168
+  Round 22: 0.8488
+  Round 23: 0.8562
+  Round 24: 0.8392
+  Round 25: 0.8203
+  Round 26: 0.8580
+  Round 27: 0.8363
+  Round 28: 0.8520
+  Round 29: 0.8559
+  Round 30: 0.8490
+  [PLOT] Saved → /Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1
+
+Round-by-round accuracy:
+  Round 1: 0.4228
+  Round 2: 0.6974
+  Round 3: 0.7654
+  Round 4: 0.7880
+  Round 5: 0.7954
+  Round 6: 0.8214
+  Round 7: 0.8207
+  Round 8: 0.8197
+  Round 9: 0.8317
+  Round 10: 0.8486
+  Round 11: 0.8290
+  Round 12: 0.8430
+  Round 13: 0.8411
+  Round 14: 0.8370
+  Round 15: 0.8315
+  Round 16: 0.8330
+  Round 17: 0.8520
+  Round 18: 0.8607
+  Round 19: 0.8370
+  Round 20: 0.8714
+  Round 21: 0.8168
+  Round 22: 0.8488
+  Round 23: 0.8562
+  Round 24: 0.8392
+  Round 25: 0.8203
+  Round 26: 0.8580
+  Round 27: 0.8363
+  Round 28: 0.8520
+  Round 29: 0.8559
+  Round 30: 0.8490
+(ClientAppActor pid=38553)   [SETUP] Client 8 is MALICIOUS [repeated 8x across cluster]
+(ClientAppActor pid=38552)   [ATTACK] Client 8 submitted poisoned update [repeated 4x across cluster]
+(ClientAppActor pid=38556) [2026-03-26 11:26:55,094 E 38556 1575526] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14 [repeated 7x across cluster]
+(fl-env) apple@MacBook-Pro-10 project-main % 

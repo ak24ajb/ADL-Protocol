@@ -1,0 +1,237 @@
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 2] Trust Scores:
+  Client  3: cos_sim=+0.996  trust=0.754  penalised=0.735  ✓
+  Client  4: cos_sim=+0.996  trust=0.754  penalised=0.735  ✓
+  Client  6: cos_sim=+0.990  trust=0.753  penalised=0.734  ✓
+  Client  1: cos_sim=+0.996  trust=0.754  penalised=0.735  ✓
+  Client  8: cos_sim=+0.991  trust=0.753  penalised=0.734  ✓
+  Client  5: cos_sim=+0.996  trust=0.754  penalised=0.736  ✓
+  Client  9: cos_sim=+0.990  trust=0.753  penalised=0.734  ✓
+  Client  0: cos_sim=+0.996  trust=0.754  penalised=0.735  ✓
+  Client  7: cos_sim=+0.990  trust=0.753  penalised=0.734  ✓
+  Client  2: cos_sim=+0.996  trust=0.754  penalised=0.736  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=40726)   [SETUP] Client 7 is MALICIOUS [repeated 16x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)
+(ClientAppActor pid=40722)   [ATTACK] Client 9 submitted poisoned update [repeated 7x across cluster]
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 3] Trust Scores:
+  Client  4: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  1: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  8: cos_sim=+0.992  trust=0.826  penalised=0.804  ✓
+  Client  2: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  0: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  9: cos_sim=+0.992  trust=0.826  penalised=0.804  ✓
+  Client  7: cos_sim=+0.992  trust=0.826  penalised=0.804  ✓
+  Client  3: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  5: cos_sim=+0.996  trust=0.827  penalised=0.806  ✓
+  Client  6: cos_sim=+0.992  trust=0.826  penalised=0.804  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 4]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 4] Trust Scores:
+  Client  4: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  Client  0: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  Client  9: cos_sim=+0.993  trust=0.877  penalised=0.855  ✓
+  Client  7: cos_sim=+0.993  trust=0.877  penalised=0.855  ✓
+  Client  5: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  Client  8: cos_sim=+0.993  trust=0.877  penalised=0.856  ✓
+  Client  6: cos_sim=+0.993  trust=0.877  penalised=0.855  ✓
+  Client  2: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  Client  1: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  Client  3: cos_sim=+0.997  trust=0.879  penalised=0.857  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 5]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 5] Trust Scores:
+  Client  4: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  Client  3: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  Client  0: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  Client  8: cos_sim=+0.994  trust=0.913  penalised=0.893  ✓
+  Client  6: cos_sim=+0.994  trust=0.913  penalised=0.893  ✓
+  Client  7: cos_sim=+0.994  trust=0.913  penalised=0.893  ✓
+  Client  1: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  Client  9: cos_sim=+0.994  trust=0.913  penalised=0.893  ✓
+  Client  5: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  Client  2: cos_sim=+0.997  trust=0.915  penalised=0.895  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=40723)   [SETUP] Client 8 is MALICIOUS [repeated 22x across cluster]
+(ClientAppActor pid=40724)   [ATTACK] Client 9 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 6]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 6] Trust Scores:
+  Client  4: cos_sim=+0.998  trust=0.940  penalised=0.923  ✓
+  Client  0: cos_sim=+0.998  trust=0.940  penalised=0.923  ✓
+  Client  6: cos_sim=+0.995  trust=0.938  penalised=0.921  ✓
+  Client  9: cos_sim=+0.995  trust=0.938  penalised=0.921  ✓
+  Client  7: cos_sim=+0.995  trust=0.938  penalised=0.921  ✓
+  Client  3: cos_sim=+0.998  trust=0.940  penalised=0.923  ✓
+  Client  5: cos_sim=+0.997  trust=0.940  penalised=0.923  ✓
+  Client  1: cos_sim=+0.998  trust=0.940  penalised=0.923  ✓
+  Client  8: cos_sim=+0.995  trust=0.938  penalised=0.921  ✓
+  Client  2: cos_sim=+0.998  trust=0.940  penalised=0.923  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 7]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 7] Trust Scores:
+  Client  2: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  5: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  0: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  4: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  3: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  9: cos_sim=+0.995  trust=0.956  penalised=0.942  ✓
+  Client  7: cos_sim=+0.995  trust=0.956  penalised=0.941  ✓
+  Client  6: cos_sim=+0.995  trust=0.956  penalised=0.941  ✓
+  Client  1: cos_sim=+0.998  trust=0.958  penalised=0.943  ✓
+  Client  8: cos_sim=+0.995  trust=0.956  penalised=0.942  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 8]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 8] Trust Scores:
+  Client  1: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  8: cos_sim=+0.996  trust=0.969  penalised=0.957  ✓
+  Client  6: cos_sim=+0.996  trust=0.969  penalised=0.957  ✓
+  Client  7: cos_sim=+0.996  trust=0.969  penalised=0.957  ✓
+  Client  4: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  5: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  0: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  3: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  2: cos_sim=+0.998  trust=0.970  penalised=0.958  ✓
+  Client  9: cos_sim=+0.996  trust=0.969  penalised=0.957  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+(ClientAppActor pid=40723)   [SETUP] Client 6 is MALICIOUS [repeated 21x across cluster]
+(ClientAppActor pid=40723)   [ATTACK] Client 6 submitted poisoned update [repeated 12x across cluster]
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 9]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 9] Trust Scores:
+  Client  7: cos_sim=+0.996  trust=0.977  penalised=0.968  ✓
+  Client  0: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  Client  5: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  Client  8: cos_sim=+0.996  trust=0.978  penalised=0.968  ✓
+  Client  6: cos_sim=+0.996  trust=0.977  penalised=0.968  ✓
+  Client  3: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  Client  9: cos_sim=+0.996  trust=0.978  penalised=0.968  ✓
+  Client  2: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  Client  1: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  Client  4: cos_sim=+0.998  trust=0.979  penalised=0.969  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [ROUND 10]
+INFO :      configure_fit: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_fit: received 10 results and 0 failures
+
+[ROUND 10] Trust Scores:
+  Client  3: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  5: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  1: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  8: cos_sim=+0.997  trust=0.984  penalised=0.976  ✓
+  Client  0: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  6: cos_sim=+0.996  trust=0.984  penalised=0.976  ✓
+  Client  9: cos_sim=+0.997  trust=0.984  penalised=0.976  ✓
+  Client  4: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  2: cos_sim=+0.998  trust=0.985  penalised=0.977  ✓
+  Client  7: cos_sim=+0.996  trust=0.984  penalised=0.976  ✓
+  → 10 trusted, 0 excluded 
+INFO :      configure_evaluate: strategy sampled 10 clients (out of 10)
+INFO :      aggregate_evaluate: received 10 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 10 round(s) in 21.52s
+INFO :      	History (loss, distributed):
+INFO :      		round 1: 1.0790575465455223
+INFO :      		round 2: 0.6985754753454044
+INFO :      		round 3: 0.5714068362697625
+INFO :      		round 4: 0.5208207454734717
+INFO :      		round 5: 0.4858269127413107
+INFO :      		round 6: 0.45960405847896785
+INFO :      		round 7: 0.43284720765135165
+INFO :      		round 8: 0.42878786500650473
+INFO :      		round 9: 0.412677270650102
+INFO :      		round 10: 0.41033704894038436
+INFO :      	History (metrics, distributed, evaluate):
+INFO :      	{'accuracy': [(1, 0.515),
+INFO :      	              (2, 0.7126),
+INFO :      	              (3, 0.76),
+INFO :      	              (4, 0.771),
+INFO :      	              (5, 0.8043),
+INFO :      	              (6, 0.8074),
+INFO :      	              (7, 0.8391),
+INFO :      	              (8, 0.8347),
+INFO :      	              (9, 0.8484),
+INFO :      	              (10, 0.8351)]}
+INFO :      
+
+--- trust_protocol ---
+  Round  1: 0.5150
+  Round  2: 0.7126
+  Round  3: 0.7600
+  Round  4: 0.7710
+  Round  5: 0.8043
+  Round  6: 0.8074
+  Round  7: 0.8391
+  Round  8: 0.8347
+  Round  9: 0.8484
+  Round 10: 0.8351
+  [PLOT] Saved → /Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1
+
+Round-by-round accuracy:
+  Round 1: 0.5150
+  Round 2: 0.7126
+  Round 3: 0.7600
+  Round 4: 0.7710
+  Round 5: 0.8043
+  Round 6: 0.8074
+  Round 7: 0.8391
+  Round 8: 0.8347
+  Round 9: 0.8484
+  Round 10: 0.8351
+(pid=gcs_server) [2026-03-31 13:26:28,264 E 40712 2380852] (gcs_server) gcs_server.cc:302: Failed to establish connection to the event+metrics exporter agent. Events and metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(raylet) [2026-03-31 13:26:28,767 E 40716 2380958] (raylet) main.cc:975: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[2026-03-31 13:26:29,496 E 40707 2381015] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(ClientAppActor pid=40726) [2026-03-31 13:26:29,496 E 40726 2381233] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(ClientAppActor pid=40719)   [SETUP] Client 6 is MALICIOUS [repeated 20x across cluster]
+(ClientAppActor pid=40721)   [ATTACK] Client 7 submitted poisoned update [repeated 8x across cluster]
+(ClientAppActor pid=40721) [2026-03-31 13:26:29,574 E 40721 2381487] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14 [repeated 7x across cluster]
