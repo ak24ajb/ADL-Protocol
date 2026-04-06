@@ -10,10 +10,10 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg') 
-
+URL= "/Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1"
 
 #this is experimental to check code working
-def plot_single_experiment(results, filename="/Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1"):
+def plot_single_experiment(results, filename=URL):
  
     label    = results["experiment"]
     accuracy = results["accuracy_per_round"]
@@ -65,7 +65,7 @@ def plot_single_experiment(results, filename="/Users/apple/Desktop/Msc Project/A
 
 #compares all 3 JSON files
 #only work in the final stage
-def plot_comparison(filename="/Users/apple/Desktop/Msc Project/Artefact/project-main/results/plot_comparison.png"):
+def plot_comparison(filename=URL):
   
     experiments = [
         ("results_honest_baseline.json",    "#2ecc71", "Honest Baseline"),
@@ -94,10 +94,7 @@ def plot_comparison(filename="/Users/apple/Desktop/Msc Project/Artefact/project-
         print("  [PLOT] No result files found. Run experiments first.")
         return
 
-    ax.set_title(
-        "Federated Learning — Baseline vs Attack vs Trust Protocol",
-        fontsize=13
-    )
+    ax.set_title("Federated Learning — Baseline vs Attack vs Trust Protocol",fontsize=13)
     ax.set_xlabel("Round", fontsize=11)
     ax.set_ylabel("Accuracy", fontsize=11)
     ax.set_ylim(0, 1.05)
