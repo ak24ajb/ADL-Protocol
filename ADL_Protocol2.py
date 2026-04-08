@@ -35,8 +35,8 @@ class ADLStrategy(fl.server.strategy.FedAvg):
 
     def __init__(
         self,
-        num_clients:     int   = 10,
-        num_rounds:      int   = 30,
+        num_clients:     int   = 20,
+        num_rounds:      int   = 100,
         penalty_factor:  float = 0.85,   # trust multiplier on blame
         reward_factor:   float = 1.10,   # trust multiplier on reward
         min_weight:      float = 0.1,    # floor — never silence a client

@@ -39,7 +39,7 @@ def plot_single_experiment(results, filename=URL):
         ax.set_title(
             f"{label.replace('_', ' ').title()}\n"
             f"Malicious Clients: {results['malicious_clients']} "
-            f"({len(results['malicious_clients'])/10*100:.0f}% of federation)",
+            f"({len(results['malicious_clients'])/20*100:.0f}% of federation)",
             fontsize=12
         )
     else:
@@ -54,8 +54,6 @@ def plot_single_experiment(results, filename=URL):
 
     plt.tight_layout()
 
-    if filename is None:
-        filename = f"plot_{label}.png"
 
     plt.savefig(filename, dpi=150)
     plt.close()
