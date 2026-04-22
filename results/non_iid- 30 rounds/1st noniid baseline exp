@@ -1,0 +1,112 @@
+apple@MacBook-Pro-10 project-main % source fl-env/bin/activate 
+(fl-env) apple@MacBook-Pro-10 project-main % python server.py baseline noniid
+WARNING :   DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+INFO :      Starting Flower simulation, config: num_rounds=5, no round_timeout
+2026-04-21 11:56:10,125	INFO worker.py:2012 -- Started a local Ray instance.
+/Users/apple/Desktop/Msc Project/Artefact/project-main/fl-env/lib/python3.13/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+INFO :      Flower VCE: Ray initialized with resources: {'node:127.0.0.1': 1.0, 'object_store_memory': 2147483648.0, 'node:__internal_head__': 1.0, 'CPU': 8.0, 'memory': 6171869184.0}
+INFO :      Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+INFO :      Flower VCE: Resources for each Virtual Client: {'num_cpus': 1}
+INFO :      Flower VCE: Creating VirtualClientEngineActorPool with 8 actors
+INFO :      [INIT]
+INFO :      Requesting initial parameters from one random client
+INFO :      Received initial parameters from one random client
+INFO :      Starting evaluation of initial global parameters
+INFO :      Evaluation returned no results (`None`)
+INFO :      
+INFO :      [ROUND 1]
+INFO :      configure_fit: strategy sampled 20 clients (out of 20)
+(ClientAppActor pid=13123)   [NON-IID] Client 5 | Total: 3472 samples | Distribution: {0: 314, 1: 26, 2: 430, 3: 298, 4: 97, 5: 62, 6: 3, 7: 469, 8: 1771, 9: 2}
+(ClientAppActor pid=13123) /Users/apple/Desktop/Msc Project/Artefact/project-main/dataset.py:69: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+(ClientAppActor pid=13123)   labels      = np.array(trainset.targets)
+(ClientAppActor pid=13123)   [NON-IID] Client 14 | Total: 2530 samples | Distribution: {0: 6, 1: 328, 2: 560, 3: 371, 4: 155, 5: 589, 6: 141, 7: 93, 8: 262, 9: 25}
+(ClientAppActor pid=13123)   [NON-IID] Client 17 | Total: 3252 samples | Distribution: {0: 523, 1: 294, 2: 34, 3: 544, 4: 2, 5: 875, 6: 454, 7: 465, 8: 3, 9: 58}
+(ClientAppActor pid=13123)   [NON-IID] Client 13 | Total: 1157 samples | Distribution: {0: 169, 2: 237, 3: 189, 4: 82, 5: 176, 6: 139, 7: 41, 8: 45, 9: 79}
+(ClientAppActor pid=13123)   [NON-IID] Client 12 | Total: 4753 samples | Distribution: {0: 146, 1: 462, 2: 40, 3: 42, 4: 647, 5: 939, 6: 208, 7: 12, 8: 560, 9: 1697}
+(ClientAppActor pid=13123)   [NON-IID] Client 4 | Total: 1981 samples | Distribution: {1: 219, 2: 42, 3: 725, 4: 91, 5: 39, 6: 6, 7: 69, 8: 779, 9: 11}
+INFO :      aggregate_fit: received 20 results and 0 failures
+WARNING :   No fit_metrics_aggregation_fn provided
+INFO :      configure_evaluate: strategy sampled 20 clients (out of 20)
+(ClientAppActor pid=13121)   [NON-IID] Client 2 | Total: 4029 samples | Distribution: {0: 8, 1: 806, 2: 1223, 3: 326, 4: 214, 5: 901, 6: 25, 7: 351, 8: 101, 9: 74} [repeated 33x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)
+INFO :      aggregate_evaluate: received 20 results and 0 failures
+INFO :      
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 20 clients (out of 20)
+(raylet) [2026-04-21 11:56:19,477 E 13116 634971] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2026-04-21_11-56-07_918164_13104 is over 95% full, available space: 11.8035 GB; capacity: 460.432 GB. Object creation will fail if spilling is required.
+(ClientAppActor pid=13119) /Users/apple/Desktop/Msc Project/Artefact/project-main/dataset.py:69: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword [repeated 7x across cluster]
+(ClientAppActor pid=13119)   labels      = np.array(trainset.targets) [repeated 7x across cluster]
+INFO :      aggregate_fit: received 20 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 20 clients (out of 20)
+INFO :      aggregate_evaluate: received 20 results and 0 failures
+INFO :      
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 20 clients (out of 20)
+INFO :      aggregate_fit: received 20 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 20 clients (out of 20)
+(ClientAppActor pid=13120)   [NON-IID] Client 13 | Total: 1157 samples | Distribution: {0: 169, 2: 237, 3: 189, 4: 82, 5: 176, 6: 139, 7: 41, 8: 45, 9: 79} [repeated 70x across cluster]
+INFO :      aggregate_evaluate: received 20 results and 0 failures
+INFO :      
+INFO :      [ROUND 4]
+INFO :      configure_fit: strategy sampled 20 clients (out of 20)
+INFO :      aggregate_fit: received 20 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 20 clients (out of 20)
+INFO :      aggregate_evaluate: received 20 results and 0 failures
+INFO :      
+INFO :      [ROUND 5]
+INFO :      configure_fit: strategy sampled 20 clients (out of 20)
+(ClientAppActor pid=13120)   [NON-IID] Client 5 | Total: 3472 samples | Distribution: {0: 314, 1: 26, 2: 430, 3: 298, 4: 97, 5: 62, 6: 3, 7: 469, 8: 1771, 9: 2} [repeated 59x across cluster]
+INFO :      aggregate_fit: received 20 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 20 clients (out of 20)
+(raylet) [2026-04-21 11:56:29,575 E 13116 634971] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2026-04-21_11-56-07_918164_13104 is over 95% full, available space: 11.8033 GB; capacity: 460.432 GB. Object creation will fail if spilling is required.
+INFO :      aggregate_evaluate: received 20 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 5 round(s) in 17.95s
+INFO :      	History (loss, distributed):
+INFO :      		round 1: 1.9578069638901245
+INFO :      		round 2: 1.325185287303437
+INFO :      		round 3: 0.9078286438704299
+INFO :      		round 4: 0.6865070357490272
+INFO :      		round 5: 0.5639086496144438
+INFO :      	History (metrics, distributed, evaluate):
+INFO :      	{'accuracy': [(1, 0.5654),
+INFO :      	              (2, 0.7070999999999998),
+INFO :      	              (3, 0.765),
+INFO :      	              (4, 0.8182),
+INFO :      	              (5, 0.8514)]}
+INFO :      
+
+--- honest_baseline_noniid ---
+  Round  1: 0.5654
+  Round  2: 0.7071
+  Round  3: 0.7650
+  Round  4: 0.8182
+  Round  5: 0.8514
+  [PLOT] Saved → /Users/apple/Desktop/Msc Project/Artefact/project-main/results/attack1
+
+Round-by-round accuracy:
+  Round 1: 0.5654
+  Round 2: 0.7071
+  Round 3: 0.7650
+  Round 4: 0.8182
+  Round 5: 0.8514
+(pid=gcs_server) [2026-04-21 11:56:38,642 E 13112 634814] (gcs_server) gcs_server.cc:302: Failed to establish connection to the event+metrics exporter agent. Events and metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(raylet) [2026-04-21 11:56:39,605 E 13116 634926] (raylet) main.cc:975: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(raylet) [2026-04-21 11:56:39,647 E 13116 634971] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2026-04-21_11-56-07_918164_13104 is over 95% full, available space: 11.8026 GB; capacity: 460.432 GB. Object creation will fail if spilling is required.
+(ClientAppActor pid=13121) [2026-04-21 11:56:40,864 E 13121 635251] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[2026-04-21 11:56:41,032 E 13104 635047] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+(ClientAppActor pid=13123)   [NON-IID] Client 5 | Total: 3472 samples | Distribution: {0: 314, 1: 26, 2: 430, 3: 298, 4: 97, 5: 62, 6: 3, 7: 469, 8: 1771, 9: 2} [repeated 33x across cluster]
+(ClientAppActor pid=13126) [2026-04-21 11:56:41,081 E 13126 635426] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14 [repeated 7x across cluster]
+(fl-env) apple@MacBook-Pro-10 project-main % 

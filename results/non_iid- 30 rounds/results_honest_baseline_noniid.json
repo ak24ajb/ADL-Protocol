@@ -1,0 +1,11 @@
+{
+  "experiment": "honest_baseline_noniid",
+  "malicious_clients": [],
+  "accuracy_per_round": [
+    0.5654,
+    0.7070999999999998,
+    0.765,
+    0.8182,
+    0.8514
+  ]
+}
