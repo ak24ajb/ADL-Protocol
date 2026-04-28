@@ -1,44 +1,38 @@
-
-    #    ("BASELINE - 20 clients.json",    "#2ecc71", "Honest Baseline"),
-    #    ("ATTACK - 20 Clients.json", "#e74c3c", "FedAvg Under Attack"),
-     #   ("TRUST - 20 clients.json",      "#3498db", "Trust Protocol"),
-
-
 import json
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 import os
 
-# ── Load JSON Files ───────────────────────────────────────────────────────────
+#Load JSON Files ----------
 
 def load_results(filepath):
     """Load a single experiment JSON file."""
     with open(filepath, "r") as f:
         return json.load(f)
 
-# File paths — adjust if your JSON files live elsewhere
+
+BASE_DIR = "/Users/apple/Desktop/Msc Project/Artefact/project-main/GRAPHS/plot comparison"
+
 FILES = {
-    "Honest Baseline":      "GRAPHS/plot comparison/BASELINE - 20 clients.json",
-    "Label Flipping Attack":  "GRAPHS/plot comparison/ATTACK - 20 Clients.json",
-    "ADL Trust Protocol":   "GRAPHS/plot comparison/TRUST - 20 clients.json",
+    "Honest Baseline":       os.path.join(BASE_DIR, "BASELINE - 20 clients.json"),
+    "Label Flipping Attack": os.path.join(BASE_DIR, "ATTACK - 20 Clients.json"),
+    "ADL Trust Protocol":    os.path.join(BASE_DIR, "TRUST - 20 clients.json"),
 }
 
-# Colours for each condition
 COLOURS = {
-    "Honest Baseline":      "#2ecc71",   # green
-    "Label Flipping Attack":  "#e74c3c",   # red
-    "ADL Trust Protocol":   "#3498db",   # blue
+    "Honest Baseline":       "#b6ff97",
+    "Label Flipping Attack": "#e74c3c",
+    "ADL Trust Protocol":    "#0097b2",
 }
 
-# Line styles
 STYLES = {
-    "Honest Baseline":      "-",
-    "Label Flipping Attack":  "--",
-    "ADL Trust Protocol":   "-.",
+    "Honest Baseline":       "-",
+    "Label Flipping Attack": "--",
+    "ADL Trust Protocol":    "-.",
 }
 
-# ── Load All Data ─────────────────────────────────────────────────────────────
+#  ----------Load All Data ----------
 
 data = {}
 for label, filepath in FILES.items():
@@ -51,7 +45,7 @@ for label, filepath in FILES.items():
 if not data:
     raise FileNotFoundError("No JSON result files found. Run your experiments first.")
 
-# ── Plot 1: Accuracy Per Round (Main Comparison) ──────────────────────────────
+#  ---------- Plot 1: Accuracy Per Round ----------
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -61,7 +55,7 @@ for label, result in data.items():
 
     ax.plot(
         rounds,
-        [acc * 100 for acc in accuracy],   # convert to percentage
+        [acc * 100 for acc in accuracy],
         color     = COLOURS[label],
         linestyle = STYLES[label],
         linewidth = 2.2,
@@ -70,7 +64,6 @@ for label, result in data.items():
         label     = label
     )
 
-# Reference lines for final accuracy
 for label, result in data.items():
     final_acc = result["accuracy_per_round"][-1] * 100
     ax.axhline(
@@ -93,7 +86,6 @@ ax.legend(fontsize=11, loc="lower right")
 ax.grid(True, linestyle="--", alpha=0.4)
 ax.tick_params(axis="both", labelsize=10)
 
-# Annotate final accuracy values
 for label, result in data.items():
     final_acc   = result["accuracy_per_round"][-1] * 100
     final_round = len(result["accuracy_per_round"])
@@ -116,13 +108,12 @@ print("Saved: comparison_accuracy.png")
 
 fig2, ax2 = plt.subplots(figsize=(8, 5))
 
-labels       = list(data.keys())
-final_accs   = [data[l]["accuracy_per_round"][-1] * 100 for l in labels]
-bar_colours  = [COLOURS[l] for l in labels]
+labels      = list(data.keys())
+final_accs  = [data[l]["accuracy_per_round"][-1] * 100 for l in labels]
+bar_colours = [COLOURS[l] for l in labels]
 
 bars = ax2.bar(labels, final_accs, color=bar_colours, width=0.45, edgecolor="white", linewidth=1.2)
 
-# Value labels on top of each bar
 for bar, val in zip(bars, final_accs):
     ax2.text(
         bar.get_x() + bar.get_width() / 2,
@@ -148,21 +139,21 @@ plt.savefig("comparison_bar.png", dpi=150)
 plt.show()
 print("Saved: comparison_bar.png")
 
-# ── Plot 3: Accuracy Gap Recovery (CFA vs FedAvg Attack) ─────────────────────
+#  ---------- Plot 3: Accuracy Gap Recovery  ----------
 
-if "FedAvg Under Attack" in data and "CFA Trust Protocol" in data:
+if "Label Flipping Attack" in data and "ADL Trust Protocol" in data:
 
-    attack_acc = data["FedAvg Under Attack"]["accuracy_per_round"]
-    trust_acc  = data["CFA Trust Protocol"]["accuracy_per_round"]
+    attack_acc = data["Label Flipping Attack"]["accuracy_per_round"]
+    trust_acc  = data["ADL Trust Protocol"]["accuracy_per_round"]
     min_rounds = min(len(attack_acc), len(trust_acc))
 
-    gap = [(trust_acc[i] - attack_acc[i]) * 100 for i in range(min_rounds)]
+    gap    = [(trust_acc[i] - attack_acc[i]) * 100 for i in range(min_rounds)]
     rounds = list(range(1, min_rounds + 1))
 
     fig3, ax3 = plt.subplots(figsize=(10, 5))
 
-    ax3.fill_between(rounds, gap, color="#3498db", alpha=0.25)
-    ax3.plot(rounds, gap, color="#3498db", linewidth=2.2, marker="o", markersize=4)
+    ax3.fill_between(rounds, gap, color="#0097b2", alpha=0.25)
+    ax3.plot(rounds, gap, color="#0097b2", linewidth=2.2, marker="o", markersize=4)
     ax3.axhline(y=0, color="grey", linewidth=1, linestyle="--")
 
     ax3.set_title(
@@ -179,33 +170,64 @@ if "FedAvg Under Attack" in data and "CFA Trust Protocol" in data:
     plt.show()
     print("Saved: comparison_gap.png")
 
-# ── Summary Table (printed to console) ───────────────────────────────────────
+else:
+    print("Gap plot skipped ")
 
-print("\n" + "=" * 55)
-print(f"{'Experiment':<28} {'Final Acc':>10} {'Rounds':>8}")
-print("=" * 55)
+#  ----------Summary Table  ----------
 
-for label, result in data.items():
-    acc    = result["accuracy_per_round"][-1] * 100
-    rounds = len(result["accuracy_per_round"])
-    print(f"{label:<28} {acc:>9.2f}% {rounds:>8}")
+def plot_trust_weights(trust_history, malicious_clients, filename="/Users/apple/Desktop/Msc Project/Artefact/project-main/results/iid - 100 rounds FINAL/results_trust - 20 clients - 100 rounds.json"):
+    import matplotlib.pyplot as plt
+    import numpy as np
 
-# Gap recovery metric
-if "Honest Baseline" in data and "FedAvg Under Attack" in data and "CFA Trust Protocol" in data:
-    baseline_acc = data["Honest Baseline"]["accuracy_per_round"][-1] * 100
-    attack_acc   = data["FedAvg Under Attack"]["accuracy_per_round"][-1] * 100
-    trust_acc    = data["CFA Trust Protocol"]["accuracy_per_round"][-1] * 100
+    with open("results_trust_-_20_clients_-_100_rounds.json") as f:
+        data = json.load(f)
+        
+        
+    trust_history=data["trust_history"]
+    malicious_clients=data["malicious_clients"]
 
-    total_gap    = baseline_acc - attack_acc
-    recovered    = trust_acc - attack_acc
-    pct_recovery = (recovered / total_gap) * 100 if total_gap > 0 else 0
-
-    print("=" * 55)
-    print(f"\nAccuracy gap (Baseline - Attack): {total_gap:.2f}%")
-    print(f"ADL recovery:                     {recovered:.2f}%")
-    print(f"Gap closed by ADL:                {pct_recovery:.1f}%")
-    print("=" * 55)
     
+    fig, ax = plt.subplots(figsize=(14, 6))
+
+    malicious_set = set(str(c) for c in malicious_clients)
     
-if __name__ == "__main__":
-    load_results("/Users/apple/Desktop/Msc Project/Artefact/project-main/GRAPH")
+    plotted_honest    = False
+    plotted_malicious = False
+
+    for client_id, weights in trust_history.items():
+        rounds = list(range(1, len(weights) + 1))
+        is_malicious = client_id in malicious_set
+
+        if is_malicious:
+            label = "Malicious Clients" if not plotted_malicious else "_nolegend_"
+            ax.plot(rounds, weights,
+                    color="#e74c3c", linewidth=1.5,
+                    alpha=0.8, label=label)
+            plotted_malicious = True
+        else:
+            label = "Honest Clients" if not plotted_honest else "_nolegend_"
+            ax.plot(rounds, weights,
+                    color="#2ecc71", linewidth=1.5,
+                    alpha=0.8, label=label)
+            plotted_honest = True
+
+    # Mark the minimum weight floor
+    ax.axhline(y=0.1, color='gray', linestyle='--',
+               linewidth=1.0, alpha=0.6, label='Min Weight Floor (0.1)')
+    ax.axhline(y=1.0, color='black', linestyle=':',
+               linewidth=1.0, alpha=0.4, label='Neutral Weight (1.0)')
+
+    ax.set_title(
+        "ADL Protocol — Client Trust Weight Trajectories (IID, 40% Byzantine)",
+        fontsize=13, fontweight='bold'
+    )
+    ax.set_xlabel("Round", fontsize=11)
+    ax.set_ylabel("Trust Weight", fontsize=11)
+    ax.set_ylim(0, 2.1)
+    ax.legend(fontsize=10)
+    ax.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig(filename, dpi=150)
+    plt.close()
+    print(f"  [PLOT] saved - {filename}")
