@@ -14,8 +14,8 @@ def load_mnist():
     
     transform = transforms.Compose([
         transforms.ToTensor(), #turning our images from pixels(0-255) to pytorch tensor values(0-1.0)
-        transforms.Normalize((0.1307,), (0.3081,))  # MNIST mean/std
-    ])
+        transforms.Normalize((0.1307,), (0.3081,)) ]) # MNIST mean/std
+    
     
     trainset = datasets.MNIST('./data', train=True, download=True, transform=transform)
     testset  = datasets.MNIST('./data', train=False, download=True, transform=transform)
@@ -48,10 +48,7 @@ def get_client_data_noniid(trainset, client_id, num_clients=20, alpha=0.5, seed=
     #Group indicing by class
     labels      = np.array(trainset.targets)
     num_classes = 10   #10 digit classes of MNIST
-    class_indices = [
-        np.where(labels == c)[0].tolist()
-        for c in range(num_classes)
-    ]
+    class_indices = [ np.where(labels == c)[0].tolist() for c in range(num_classes)]
 
     #Shuffling within each class for randomness
     for c in range(num_classes):
@@ -62,9 +59,7 @@ def get_client_data_noniid(trainset, client_id, num_clients=20, alpha=0.5, seed=
     client_indices = [[] for _ in range(num_clients)]
 
     for c in range(num_classes):
-        proportions = np.random.dirichlet(
-            alpha=np.repeat(alpha, num_clients)
-        )
+        proportions = np.random.dirichlet(alpha=np.repeat(alpha, num_clients))
 
         class_size = len(class_indices[c])
         counts     = (proportions * class_size).astype(int)
@@ -76,17 +71,16 @@ def get_client_data_noniid(trainset, client_id, num_clients=20, alpha=0.5, seed=
         #Assign indices to clients
         start = 0
         for client in range(num_clients):
+            
             end = start + counts[client]
-            client_indices[client].extend(
-                class_indices[c][start:end]
-            )
+            client_indices[client].extend(class_indices[c][start:end])
             start = end
 
     # Log distribution for this client
     client_labels = labels[client_indices[client_id]]
-    unique, counts_per_class = np.unique(
-        client_labels, return_counts=True
-    )
+    
+    unique, counts_per_class = np.unique(client_labels, return_counts=True)
+    
     distribution = dict(zip(unique.tolist(), counts_per_class.tolist()))
 
     print(f"  [NON-IID] Client {client_id} | "

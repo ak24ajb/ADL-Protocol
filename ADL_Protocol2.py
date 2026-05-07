@@ -8,25 +8,19 @@ Created on Thu Mar 26 11:25:42 2026
 
 import numpy as np
 import flwr as fl
-from flwr.common import (
-    Parameters, FitRes, Scalar,
-    ndarrays_to_parameters, parameters_to_ndarrays
-)
+from flwr.common import (Parameters, FitRes, Scalar, ndarrays_to_parameters, parameters_to_ndarrays)
 from flwr.server.client_proxy import ClientProxy
 from typing import Dict, List, Optional, Tuple, Union
 
 class ADLStrategy(fl.server.strategy.FedAvg):
 
-    def __init__(
-        self,
-        num_clients:     int   = 20,
-        num_rounds:      int   = 100,
+    def __init__(self, num_clients:int=20, num_rounds:int=10,
+                 
         penalty_factor:  float = 0.85,   #trust multiplier on blame
         reward_factor:   float = 1.10,   # ^ for reward
         #scoring bounds
         min_weight:      float = 0.1,   
-        max_weight:      float = 2.0,    
-        **kwargs):
+        max_weight:      float = 2.0, **kwargs):
         
 #fedavg inst-------------
         super().__init__(**kwargs)
@@ -38,39 +32,42 @@ class ADLStrategy(fl.server.strategy.FedAvg):
         self.max_weight     = max_weight
 
         #starting neutral here
-        self.trust_weights: Dict[str, float] = {
-            str(i): 1.0 for i in range(num_clients)
-        }
+        self.trust_weights: Dict[str, float] = {str(i): 1.0 for i in range(num_clients)}
 
         #saving history here
-        self.trust_history:  Dict[str, List[float]] = {
-            str(i): [1.0] for i in range(num_clients)
-        }
+        self.trust_history:  Dict[str, List[float]] = {str(i): [1.0] for i in range(num_clients)}
         self.accuracy_history: List[float] = []
         self.exclusion_log:    List[Dict]  = []
 
         #state carried across rounds, added
-        self.prev_accuracy:      Optional[float]            = None
+        self.prev_accuracy:      Optional[float] = None
         self.prev_client_deltas: Optional[Dict[str, np.ndarray]] = None
-        self.prev_global_delta:  Optional[np.ndarray]       = None
-        self.current_round:      int                        = 0
+        self.prev_global_delta:  Optional[np.ndarray] = None
+        self.current_round:      int = 0
 
  #-------------loaded utilities here-------------
+ 
+ #Flattening of the 3-layer MLP arrays into 1 long vector for COS SIM
 
-    def _flatten(self, params: List[np.ndarray]) -> np.ndarray:
+    def _flatten(self, params):
         return np.concatenate([p.flatten() for p in params])
+    
 
-    def _cosine_similarity(self, u: np.ndarray, v: np.ndarray) -> float:
+    def _cosine_similarity(self, u: np.ndarray, v: np.ndarray):
+        
+        #computing the magnitude of the vector through linear algebra
         nu, nv = np.linalg.norm(u), np.linalg.norm(v)
+        
         #fixed after error 1
         if nu == 0 or nv == 0:
             return 0.0
+        
+        #computing and clipping the results in the range
         return float(np.clip(np.dot(u, v) / (nu * nv), -1.0, 1.0))
 
 
 
 #-----------------------
-
 
 #   def _compute_reference(self, updates: List[np.ndarray]) -> np.ndarray:
 
@@ -98,15 +95,13 @@ class ADLStrategy(fl.server.strategy.FedAvg):
 #        penalty  = 1 - (progress * self.beta * (1 - trust))
 #        return trust * max(penalty, 0.0)
     
-#-------------Blame , Reward core -------------
 
-    def _retrospective_update(
-        self,
-        current_accuracy: float,
-        client_ids: List[str],) -> Dict[str, str]:
+
+    #-------------Blame , Reward core -------------
+
+    def _retrospective_update(self, current_accuracy: float, client_ids: List[str]):
       
-        
- #------- Core Logic implemented here,-------------
+        #------- Core Logic implemented here,-------------
         verdicts = {}
 
         if self.prev_accuracy is None or self.prev_client_deltas is None:
@@ -117,55 +112,53 @@ class ADLStrategy(fl.server.strategy.FedAvg):
 
         delta_acc = current_accuracy - self.prev_accuracy
 
+
+
+#Model improved — reward aligned clients -------------
         if delta_acc >= 0:
-            # Model improved — reward aligned clients -------------
-            print(f"  acc = +{delta_acc:.4f} - REWARDING aligned clients")
+            
+            print(f"  acc = +{delta_acc:.4f} - REWARDING good clients")
             for cid in client_ids:
                 if cid not in self.prev_client_deltas:
                     verdicts[cid] = "NO HISTORY YET"
                     continue
 
                 # aligned with global update direction?
-                sim = self._cosine_similarity(
-                    self.prev_client_deltas[cid],
-                    self.prev_global_delta
-                )
+                sim = self._cosine_similarity(self.prev_client_deltas[cid], self.prev_global_delta)
 
                 if sim > 0.01:
                     old = self.trust_weights[cid]
                     # Scale reward by alignment strength
-                    self.trust_weights[cid] = min(
-                        old * (1 + (self.reward_factor - 1) * sim),
-                        self.max_weight
-                    )
+                    self.trust_weights[cid] = min(old * (1 + (self.reward_factor - 1) * sim), self.max_weight)
                     verdicts[cid] = f"REWARDED (sim={sim:+.3f})"
                     
-                    
-                  # mild penalty — model improved overall  
+                  #introducing here the mild penalty even when model improved overall  
+                  #To ensure fairness regardless of the results
                   
                 elif sim < -0.01: 
                     old = self.trust_weights[cid]
                     self.trust_weights[cid] = max(old * 0.98,self.min_weight)
                     verdicts[cid] = f"MILD PENALTY (sim={sim:+.3f})"
                                         
-        
                 else:
                     verdicts[cid] = f"NEUTRAL  (sim={sim:+.3f})"
+                    
 
+#Model degraded — penalise divergent clients -------------
         else:
-            # ── Model degraded — penalise divergent clients -------------
-            print(f"  [ acc = {delta_acc:.4f} - PENALISING divergent clients")
+            print(f"  [ acc = {delta_acc:.4f} - PENALISING bad clients")
             
             # Score each client by deviation 
             deviation_scores: Dict[str, float] = {}
+            
             for cid in client_ids:
                 if cid not in self.prev_client_deltas:
                     deviation_scores[cid] = 0.0
                     continue
-                sim = self._cosine_similarity(
-                    self.prev_client_deltas[cid],
-                    self.prev_global_delta
-                )
+                
+                #same as above
+                sim = self._cosine_similarity(self.prev_client_deltas[cid], self.prev_global_delta)
+                
                 # Low or negative similarity = high deviation
                 deviation_scores[cid] = 1 - sim
 
@@ -174,28 +167,28 @@ class ADLStrategy(fl.server.strategy.FedAvg):
 
             for cid in client_ids:
                 score = deviation_scores.get(cid, 0.0)
+                
                 if score > avg_deviation:
                     old = self.trust_weights[cid]
+                    
                     # Scale penalty by how much above average the deviation is
                     excess = score - avg_deviation
-                    self.trust_weights[cid] = max(
-                        old * (self.penalty_factor - 0.1 * excess),
-                        self.min_weight
-                    )
+                    self.trust_weights[cid] = max(old * (self.penalty_factor - 0.1 * excess), self.min_weight)
+                    
                     verdicts[cid] = f"PENALISED (dev={score:.3f})"
                 else:
                     verdicts[cid] = f"CLEARED   (dev={score:.3f})"
 
         return verdicts
+    
+    
+    
 
     # -------------Core Aggregation -------------
     #Override evaluate aggregation to capture accuracy in real time.
     #feeding accuracy into the blame/reward logic
     
-    def aggregate_evaluate(
-        self,
-        server_round: int,
-        results: List[Tuple[ClientProxy, fl.common.EvaluateRes]],
+    def aggregate_evaluate(self, server_round: int, results: List[Tuple[ClientProxy, fl.common.EvaluateRes]],
         failures: List[Union[BaseException, Tuple[ClientProxy, fl.common.EvaluateRes]]],) -> Tuple[Optional[float], Dict[str, Scalar]]:
 
         if not results:
@@ -206,13 +199,12 @@ class ADLStrategy(fl.server.strategy.FedAvg):
         
         weighted_acc   = sum(
             r.num_examples * r.metrics["accuracy"]
+            
             #r.num_clients * r.metrics["accuracy"]
             for _, r in results) / total_examples
     
         # Store values for next round
-        self.prev_accuracy = (
-            self.accuracy_history[-1]
-            if self.accuracy_history else None)
+        self.prev_accuracy = (self.accuracy_history[-1] if self.accuracy_history else None)
         
         self.accuracy_history.append(weighted_acc)
     
@@ -223,10 +215,7 @@ class ADLStrategy(fl.server.strategy.FedAvg):
     
         return weighted_acc, {"accuracy": weighted_acc}
 
-    def aggregate_fit(
-        self,
-        server_round: int,
-        results: List[Tuple[ClientProxy, FitRes]],
+    def aggregate_fit(self, server_round: int, results: List[Tuple[ClientProxy, FitRes]],
         failures: List[Union[BaseException, Tuple[ClientProxy, FitRes]]],) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
 
         self.current_round = server_round
@@ -237,6 +226,8 @@ class ADLStrategy(fl.server.strategy.FedAvg):
         #  1. Extract client updates -------------
         client_data = []
         for i, (client_proxy, fit_res) in enumerate(results):
+            
+            #taking the results of client training, extracting the parameters and storing it into params for flattening earlier
             params    = parameters_to_ndarrays(fit_res.parameters)
             flat      = self._flatten(params)
             client_id = str(fit_res.metrics.get("client_id", f"unknown_{i}"))
@@ -308,10 +299,7 @@ class ADLStrategy(fl.server.strategy.FedAvg):
 #Stores accuracy for  aggregate_fit succeeding round
     def update_accuracy(self, accuracy: float):
 
-        self.prev_accuracy = (
-            self.accuracy_history[-1]
-            if self.accuracy_history else None
-        )
+        self.prev_accuracy = (self.accuracy_history[-1] if self.accuracy_history else None)
         self.accuracy_history.append(accuracy)
 
     def get_trust_summary(self) -> Dict:
